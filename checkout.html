@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ödeme</title>
+    <link rel="stylesheet" href="style1.css">
+  </head>
+  <body>
+    <div class="checkout-container">
+      <h1>Ödeme</h1>
+      <form>
+        <label for="name">Adınız:</label>
+        <input type="text" id="name" name="name" placeholder="Ahmet YÜKSEL" required>
+
+        <label for="gender">Cinsiyet:</label>
+        <input type="text" id="gender" name="gender" placeholder="Kız/Erkek" required>
+
+        <label for="email">E-Posta:</label>
+        <input type="email" id="email" name="email" placeholder="ornek@ornek.com" required>
+
+        <label for="address">Adres:</label>
+        <textarea id="address" name="address" placeholder="123 Örnek Sokak No 1 New York/ABD" required></textarea>
+
+        <label for="card-number">Kart No.:</label>
+        <input type="text" id="card-number" name="card-number" placeholder="1234 5678 9012 3456" required>
+
+        <label for="exp-date">Son Geçerlilik Tarihi:</label>
+        <input type="text" id="exp-date" name="exp-date" placeholder="MM/YY" required>
+
+        <label for="cvv">CVV:</label>
+        <input type="text" id="cvv" name="cvv" placeholder="123" required>
+
+        <input type="submit" value="Sipariş Ver">
+        <a href="index.html" class="back-button">Ana Sayfaya dön</a>
+
+      </form>
+      <script>
+        const form = document.querySelector('form');
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const name = document.getElementById('name').value;
+          const email = document.getElementById('email').value;
+          const address = document.getElementById('address').value;
+          const gender = document.getElementById('gender').value;
+    
+          // Send order details to server and receive response
+          // Assuming the response is a JSON object with a "success" key
+          const response = { "success": true };
+    
+          if (response.success) {
+            // Display success message
+            alert(name + " adına " + gender + " cinsiyetli köle siparişiniz alındı!");
+            // Redirect to main page
+            window.location.href = "index.html";
+          }
+        });
+      </script>
+    </div>
+  </body>
+</html>
